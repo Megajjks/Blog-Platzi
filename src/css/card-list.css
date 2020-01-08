@@ -1,0 +1,15 @@
+/* Card List style */
+.card-list{
+    display: grid;
+    grid-template-columns: repeat(4,minmax(100px,293px));
+	justify-content: center;
+	grid-gap: 30px;
+}
+
+/* Card styles */
+.card-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
