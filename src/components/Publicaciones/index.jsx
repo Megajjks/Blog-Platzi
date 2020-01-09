@@ -3,9 +3,11 @@ import { connect } from "react-redux";
 import Spinner from '../General/Spinner';
 import Fatal from '../General/Fatal';
 import Comentarios from './Comentarios';
+import Zoom from 'react-reveal/Zoom';
 
 import * as usuariosActions from "../../actions/usuariosActions";
 import * as publicacionesActions from "../../actions/publicacionesActions";
+import '../../css/post-view-style.css'
 
 const { traerTodos: usuariosTraerTodos } = usuariosActions;
 const { traerPorUsuario: publicacionesPorUsuario, abrirCerrar, traerComentarios } = publicacionesActions;
@@ -56,9 +58,20 @@ class Publicaciones extends Component {
     }
 
     const nombre = usuariosReducer.usuarios[key].name;
+    const username = usuariosReducer.usuarios[key].username;
+    const user_id = usuariosReducer.usuarios[key].id
 
     return(
-    <h1 className='trick-title'>Publicaciones de {nombre}</h1>
+      <Zoom>
+        <div className="profile-container">
+          <div className="profile-container-cover">
+            <img className='img-cover' src={`https://i.picsum.photos/id/1${user_id}/1800/350.jpg`} alt='cover-img'/>
+            <img className='img-round img-profile' src={`https://avatars.dicebear.com/v2/avataaars/${username}.svg`} alt='profile-img' />
+          </div>
+          <h1>{nombre}</h1>
+          <p>~{username}~</p>
+        </div>
+      </Zoom> 
     );
   };
 
@@ -70,6 +83,7 @@ class Publicaciones extends Component {
       publicacionesReducer: { publicaciones },
       match: { params: {key} }
     } = this.props;
+    
     //Funciones que validaran antes de poner las publicaciones
 
     //validación de usuarios
@@ -88,24 +102,37 @@ class Publicaciones extends Component {
 
     //sacando publicaciones
     const {publicaciones_key} = usuarios[key];
-    return this.mostrarInfo(
-      publicaciones[publicaciones_key],
-      publicaciones_key  
+    return( 
+      <div className="post-list">
+        {this.mostrarInfo(
+          publicaciones[publicaciones_key],
+          publicaciones_key,
+          usuarios[key].name
+        )}
+      </div>
     ); 
 
   };
 
-  mostrarInfo = (publicaciones, pub_key) => (
+  mostrarInfo = (publicaciones, pub_key, username) => (
     publicaciones.map((publicacion, com_key) =>(
-      <div 
-        className='pub_title' 
-        key={publicacion.id}
-        onClick={ () => this.mostrarComentarios(pub_key, com_key, publicacion.comentarios)}
-        >
-          <h2>{publicacion.title}</h2>
-          <p>{publicacion.body}</p>
-          {(publicacion.abierto)? <Comentarios comentarios={publicacion.comentarios}/> : ''}
-      </div>
+      <Zoom>
+        <div 
+          className='post-container' 
+          key={publicacion.id}
+          onClick={ () => this.mostrarComentarios(pub_key, com_key, publicacion.comentarios)}
+          >
+            <div className="post-nav">
+              <img className="img-round-min" src={`https://avatars.dicebear.com/v2/avataaars/${username}.svg`} alt="profile-min"/>
+              <h5>{username}</h5>
+            </div>
+            <p className='post-title'>{publicacion.title}</p>
+            <p className='post-body'>{publicacion.body}</p>
+            <div>
+            </div>
+            {(publicacion.abierto)? <Comentarios comentarios={publicacion.comentarios}/> : ''}
+        </div>
+      </Zoom>
     ))
   );
 

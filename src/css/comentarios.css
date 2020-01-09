@@ -1,0 +1,31 @@
+.comentario-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: center;
+    margin: 0px 30px -2px 0px;
+}
+
+.comentario-head{
+    display: flex;
+    flex-direction: row;
+}
+
+.img-round-comentario{
+    border-radius: 50px;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(65, 75, 110, 0.801);
+}
+
+.comentario-email{
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0.2em;
+}
+
+.comentario-body{
+    font-size: 15px;
+    margin: 4px 10px 0px 10px;
+}

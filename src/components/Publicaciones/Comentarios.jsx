@@ -2,6 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import MinSpinner from '../General/MinSpinner';
 import MinFatal from '../General/MinFatal';
+import Zoom from 'react-reveal/Zoom';
+
+import '../../css/comentarios.css';
 
 const Comentarios = (props) => {
     
@@ -15,13 +18,17 @@ const Comentarios = (props) => {
 
     const ponerComentarios = () =>(
         props.comentarios.map((comentario) =>(
-            <li key = {comentario.id}>
-                <b>
-                    <u>{comentario.email}</u>
-                </b>
-                <br/>
-                    {comentario.body}
-            </li>
+            <Zoom>
+                <li key = {comentario.id}>
+                    <div className="comentario-container">
+                        <div className="comentario-head">
+                            <img className="img-round-comentario" src={`https://avatars.dicebear.com/v2/avataaars/${comentario.id}.svg`} alt="comentario-user"/>
+                            <p className="comentario-email">{comentario.email}</p>
+                        </div>
+                        <p className="comentario-body">{comentario.body}</p>
+                    </div>
+                </li>
+            </Zoom>
         ))
     );    
     
