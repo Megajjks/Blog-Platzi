@@ -2,7 +2,13 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Spinner from '../General/Spinner';
 import Fatal from '../General/Fatal';
-import Tabla from '../Usuarios/Tabla'
+import UserList from './UserList';
+import {FiUsers} from 'react-icons/fi';
+
+import '../../css/index.css';
+import '../../css/blogstyle.css';
+import '../../css/card-list.css'
+
 import * as usuariosActions from "../../actions/usuariosActions";
 
 class Usuarios extends Component {
@@ -23,16 +29,19 @@ class Usuarios extends Component {
     }
     
     return (
-      <Tabla/>
+      <UserList/>
     );
   };
 
   render() {
     console.log(this.props.cargando);
     console.log(this.props.error);
-    return <div className="margen">
-      <h1>Usuarios</h1>
-      {this.ponerContenido()}
+    return <div>
+      <div className='title-cover'>
+        <FiUsers color='#ffffff' size='10em'/>
+        <h1 className='title-tag'>Usuarios</h1>
+      </div>
+        {this.ponerContenido()}
     </div>;
   }
 }

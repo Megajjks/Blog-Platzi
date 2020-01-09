@@ -1,11 +1,21 @@
-.title-tag{
- font-size: 10em;
- font-weight: bold;
- color: #1e272e;
- text-align: right;
- margin-right: 0.5em; 
+body {
+  background-color: #f1f2f6;
 }
 
-body{
-    background-color: #f1f2f6;
-  }
+.title-tag {
+  font-size: 10em;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: right;
+  margin-right: 0.5em;
+}
+.title-cover {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #253a46;
+  margin-bottom: 2em;
+  border-radius: 0px 0px 0px 0px;
+  box-shadow: 0 4px 0px 0 rgba(0, 0, 0, 0.2);
+}

@@ -3,8 +3,7 @@
     404 page
 =======================*/
 
-
-.page_404{ padding:40px 0; background:#fff; font-family: 'Arial', serif;
+.page_404{ padding:40px 0; background:#f1f2f6; font-family: 'Arial', serif;
 }
 
 .page_404  img{ width:100%;}
@@ -26,7 +25,7 @@
 			 }
 			 
 			 .link_404{			 
-	color: #fff!important;
+	color: #f1f2f6!important;
     padding: 10px 20px;
     background: #39ac31;
     margin: 20px 0;
