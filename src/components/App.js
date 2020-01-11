@@ -4,8 +4,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Menu from './menu'
 import Usuarios from './Usuarios/index'
 import Publicaciones from './Publicaciones/index'
-
-const Tareas = () => <div>Tareas</div>
+import Tareas from './Tareas';
 
 const App = (props) =>(
   <BrowserRouter>
