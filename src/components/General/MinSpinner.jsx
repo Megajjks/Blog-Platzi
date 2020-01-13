@@ -4,7 +4,7 @@ import '../../css/min-spinner.css';
 function MinSpinner() {
     return (
         <div className='d-flex flex-column justify-content-cente align-items-center'>
-              <div class="lds-ellipsis"><div></div><div></div><div></div></div>
+              <div className="lds-ellipsis"><div></div><div></div><div></div></div>
         </div>
     )
 }
